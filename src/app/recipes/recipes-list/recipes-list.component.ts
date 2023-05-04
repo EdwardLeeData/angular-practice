@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -7,6 +7,8 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent {
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+
   recipes: Recipe[] = [
     new Recipe(
       'A Test Recipe',
@@ -14,9 +16,13 @@ export class RecipesListComponent {
       'https://www.wolflair.com/wp-content/uploads/2017/01/placeholder.jpg'
     ),
     new Recipe(
-      'A Test Recipe',
-      'This is simply a test',
+      'Another Test Recipe',
+      'This is simply another test',
       'https://www.wolflair.com/wp-content/uploads/2017/01/placeholder.jpg'
     )
   ];
+
+  onRecipeSelected(recipe: Recipe){
+    this.recipeWasSelected.emit(recipe);
+  }
 }
