@@ -18,11 +18,5 @@ export class RecipesListComponent {
       'This is simply a test',
       'https://www.wolflair.com/wp-content/uploads/2017/01/placeholder.jpg'
     )
-  
-  
-  
-  ]
-
-
-  ;
+  ];
 }
